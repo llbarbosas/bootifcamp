@@ -18,13 +18,7 @@ async function connectionTest(){
 }
 connectionTest();
 
-const db = {
-    'sequelize': sequelize,
-    'Sequelize': Sequelize
-};
-/*db.sequelize = sequelize;
-db.Sequelize = Sequelize;*/
-module.exports = db;
+module.exports = sequelize;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(require('./routes'));

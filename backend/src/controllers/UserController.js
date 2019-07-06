@@ -1,5 +1,5 @@
-const server = require("../server")
-const user = server.sequelize.import('../models/User');
+const sequelize = require("../server")
+const user = sequelize.import('../models/User');
 class UserController{
     async create(req,res){
         try{

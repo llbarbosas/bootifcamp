@@ -1,5 +1,5 @@
-const server = require("../server")
-const subject = server.sequelize.import('../models/Subject');
+const sequelize = require("../server")
+const subject = sequelize.import('../models/Subject');
 class SubjectController{
     async create(req,res){
         try{
