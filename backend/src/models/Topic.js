@@ -1,16 +1,18 @@
 const server = require('../server.js');
 module.exports = (sequelize,Sequelize) => {
     const Topic = sequelize.define('topic', {
+        name: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            validate: {
+                notNull: { msg : "O campo nome não pode ser nulo." },
+                notEmpty: { msg: "O campo nome não pode ser vazio." }
+            }
+        },
+        conteudo: {
+            type: Sequelize.TEXT,
+            allowNull: true
+        }
     });
-    Subject.sync();
     return Topic;
 }
-/*         
-Campos da tabela topic que devem ser adicionados:
-    ID BIGSERIAL NOT NULL,
-    NAME VARCHAR(255)  NOT NULL,
-    CONTEUDO TEXT,
-    ID_SUBJECT BIGINT NOT NULL,
-    PRIMARY KEY (ID),
-    FOREIGN KEY (ID_SUBJECT) REFERENCES SUBJECT(ID)
-*/

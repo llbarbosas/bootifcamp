@@ -1,3 +1,5 @@
+const sequelize = require('../server');
+const Topic = sequelize.import('./Topic');
 module.exports = (sequelize, Sequelize) => {
     const Subject = sequelize.define('subject', {
         name: { 
@@ -10,6 +12,11 @@ module.exports = (sequelize, Sequelize) => {
             }
         }
     });
-    Subject.sync();
+    Subject.hasMany(Topic, {
+        foreignKey: {
+          allowNull: false
+        },
+        onDelete: 'CASCADE'
+    });
     return Subject;
 }

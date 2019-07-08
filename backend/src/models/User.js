@@ -50,6 +50,5 @@ module.exports = (sequelize, Sequelize) => {
             defaultValue: false
         }
     });
-    User.sync();
     return User;
 }
