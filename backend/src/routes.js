@@ -4,7 +4,7 @@ const userController = require('./controllers/UserController');
 const subjectController = require('./controllers/SubjectController');
 const topicController = require('./controllers/TopicController');
 
-
+routes.get('/topic/:subjectId', topicController.getTopicBySubjectId);
 routes.post('/topic', topicController.create);
 routes.post('/user', userController.create);
 routes.get('/user/:email', userController.getUserByEmail);
