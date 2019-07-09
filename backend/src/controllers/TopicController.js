@@ -10,7 +10,7 @@ class TopicController{
             res.status(500).send(e);
         }
     }
-    async getTopicBySubjectId(req,res){
+    async getTopicsBySubjectId(req,res){
         try{
             const result = await topic.findAll({ where: {subjectId: req.params.subjectId}});
             const topics = result.map(topic => {
@@ -22,6 +22,14 @@ class TopicController{
             res.send(topics);
         }catch(e){
             res.status(500).send(e);
+        }
+    }
+    async deleteTopic(req,res){
+        try{
+            const result = await topic.destroy({ where: {subjectId: req.body.subjectId, id: req.body.topicId}});
+            res.send("Número de tópicos destrúidos: " + result);
+        }catch(e){
+            console.log(e);
         }
     }
 }
