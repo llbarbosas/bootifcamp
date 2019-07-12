@@ -9,5 +9,13 @@ class SubjectController{
             res.status(500).send(e);
         }
     }
+    async deleteSubject(req,res){
+        try{
+            const subject = await subject.destroy({ where: {name: req.body.subjectName}});
+            res.send("Número de tópicos destrúidos: " + result);
+        }catch(e){
+            res.status(500).send(e);
+        }
+    }
 }
 module.exports = new SubjectController();

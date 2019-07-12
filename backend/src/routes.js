@@ -10,6 +10,8 @@ routes.delete('/topic', topicController.deleteTopic);
 routes.post('/user', userController.create);
 routes.get('/user/:email', userController.getUserByEmail);
 routes.post('/subject', subjectController.create);
+routes.delete('/subject', subjectController.deleteSubject);
+
 
 
 module.exports = routes;
