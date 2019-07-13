@@ -2,6 +2,14 @@ const sequelize = require("../server");
 const topic = sequelize.import('../models/Topic');
 const subject = sequelize.import('../models/Subject');
 class SubjectController{
+    async getAllSubjects(req,res){
+        try{
+            const subjects = await subject.findAll();
+            res.json(subjects);
+        }catch(e){
+            res.status(500).send(e);
+        }
+    }
     async getSubjectByName(req,res){
         try{
             const subjectData = await subject.findOne({ where : {name: req.params.subjectName}});

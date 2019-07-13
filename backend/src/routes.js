@@ -9,6 +9,7 @@ routes.delete('/topic', topicController.deleteTopic);
 routes.post('/user', userController.create);
 routes.get('/user/:email', userController.getUserByEmail);
 routes.get('/subject/:subjectName', subjectController.getSubjectByName);
+routes.get('/subject', subjectController.getAllSubjects);
 routes.post('/subject', subjectController.create);
 routes.delete('/subject', subjectController.deleteSubject);
 
