@@ -14,15 +14,15 @@ class SubjectController{
         try{
             const subjectData = await subject.findOne({ where : {name: req.params.subjectName}});
             if(subjectData){
-                const subjectTopics = await topic.findAll({ where: {subjectId: subjectData.id}});
+                let subjectTopics = await topic.findAll({ where: {subjectId: subjectData.id}});
                 if(subjectTopics != ""){
-                    const teste = subjectTopics.map(topic => {
+                    subjectTopics = subjectTopics.map(topic => {
                         return {
                             "name": topic.name,
                             "content": topic.conteudo
                         }
                     });
-                    res.json(teste);
+                    res.json(subjectTopics);
                 }else{
                     res.send(`Não existem tópicos cadastrados nessa disciplina`);
                 }
@@ -31,7 +31,7 @@ class SubjectController{
                 res.send("Essa disciplina não existe.");
             }
         }catch(e){
-            res.status(500).send(e);
+            res.status(500).send(`${e}`);
         }        
     }
     async create(req,res){
@@ -47,7 +47,7 @@ class SubjectController{
             const NumberOfSubjectsDeleted = await subject.destroy({ where: {name: req.body.subjectName}});
             res.send(`${NumberOfSubjectsDeleted}`);
         }catch(e){
-            res.status(500).send(e);
+            res.status(500).send(`${e}`);
         }
     }
 }
