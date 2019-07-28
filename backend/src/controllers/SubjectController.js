@@ -7,7 +7,7 @@ class SubjectController{
             const subjects = await subject.findAll();
             res.json(subjects);
         }catch(e){
-            res.status(500).send(e);
+            res.status(500).json({error : `${e}`});
         }
     }
     async getSubjectByName(req,res){
@@ -19,19 +19,21 @@ class SubjectController{
                     subjectTopics = subjectTopics.map(topic => {
                         return {
                             "name": topic.name,
-                            "content": topic.conteudo
+                            "content": topic.conteudo,
+                            "id": topic.id,
+                            "subjectId": topic.subjectId
                         }
                     });
                     res.json(subjectTopics);
                 }else{
-                    res.send(`Não existem tópicos cadastrados nessa disciplina`);
+                    res.status(404).json({error : `Não existem tópicos cadastrados nessa disciplina`});
                 }
 
             }else{
-                res.send("Essa disciplina não existe.");
+                res.status(404).json({error : `Essa disciplina não existe`});
             }
         }catch(e){
-            res.status(500).send(`${e}`);
+            res.status(500).json({error : `${e}`});
         }        
     }
     async create(req,res){
@@ -39,15 +41,16 @@ class SubjectController{
             const subjectData = await subject.create(req.body);
             res.send(subjectData);
         }catch(e){
-            res.status(500).send(e);
+            res.status(500).json({error : `${e}`});
+            console.log(e);
         }
     }
     async deleteSubject(req,res){
         try{
             const NumberOfSubjectsDeleted = await subject.destroy({ where: {name: req.body.subjectName}});
-            res.send(`${NumberOfSubjectsDeleted}`);
+            res.json(`${NumberOfSubjectsDeleted}`);
         }catch(e){
-            res.status(500).send(`${e}`);
+            res.status(500).json({error : `${e}`});
         }
     }
 }

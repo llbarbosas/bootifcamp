@@ -7,15 +7,15 @@ class TopicController{
             const result = await topic.create(req.body);
             res.json(result);
         }catch(e){
-            res.status(500).send(e);
+            res.status(500).json({error : `${e}`});
         }
     }
     async deleteTopic(req,res){
         try{
             const NumberOfTopicsDeleted = await topic.destroy({ where: {subjectId: req.body.subjectId, id: req.body.topicId}});
-            res.send("Número de tópicos destrúidos: " + NumberOfTopicsDeleted);
+            res.send("Número de tópicos deletados: " + NumberOfTopicsDeleted);
         }catch(e){
-            console.log(e);
+            res.status(500).json({error : `${e}`});
         }
     }
 }
