@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.css';
+import './styles/global.css';
+import Navbar from './components/Navbar.js'
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <Navbar />
     </div>
   );
 }
