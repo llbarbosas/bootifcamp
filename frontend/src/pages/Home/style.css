@@ -1,0 +1,15 @@
+#home-container{
+    height:100%;
+    width: 100%;
+}
+#section1 {
+    background-color: #01579B;
+    height: 100vh;
+}
+#section2 {
+    height: 200vh;
+}
+#section3 {
+    background-color: #01579B;
+    height: 35vh;
+}

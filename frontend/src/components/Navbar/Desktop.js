@@ -12,16 +12,26 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     backgroundColor: "#01579B",
+    boxShadow: 'none'
   },
   loginButton: {
-    backgroundColor: "#60C83C"
+    color: '#60C83C',
+    textTransform: "none",
+    marginRight: theme.spacing(12),
+    fontFamily: 'Lato bold 700',
+    fontWeight: 'bold',
+    fontSize: '1em',
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    textTransform: "none",
+    fontSize: '1em',
+    fontFamily: 'Lato bold 700',
+    fontWeight: 'bold'
   },
   title: {
     flexGrow: 1,
-    marginLeft: theme.spacing(2),
+    marginLeft: theme.spacing(4),
   }
   
 }));
@@ -35,16 +45,13 @@ function NavBarDesktop() {
             <img  src={logo} alt="" className={classes.title}/>
           </Typography>
           <Button color="inherit" className={classes.menuButton}>
-            Home
-          </Button>
-          <Button color="inherit" className={classes.menuButton}>
             Consultar
           </Button>
           <Button color="inherit" className={classes.menuButton}>
             Praticar
           </Button>
           <Button color="inherit" className={classes.loginButton}>
-            Sou professor
+            Sou professor (a)
           </Button>
         </Toolbar>
       </AppBar>

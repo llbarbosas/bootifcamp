@@ -11,13 +11,16 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
-  menuButton: {
-  },
   loginButton: {
-    backgroundColor: "#60C83C"
+    backgroundColor: "#60C83C",
+    fontFamily: 'Lato bold 700',
+    fontWeight: 'bold',
+    fontSize: '1em',
+    textTransform: "none",
   },
   appBar:{
     backgroundColor: "#01579B",
+    boxShadow: 'none'
   },
   title: {
     display: "flex",
