@@ -12,22 +12,27 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     backgroundColor: "#01579B",
-    boxShadow: 'none'
+    boxShadow: 'none',
+    paddingTop:theme.spacing(2)
   },
   loginButton: {
-    color: '#60C83C',
+    color: '#01579B',
+    backgroundColor: '#fafafa',
     textTransform: "none",
     marginRight: theme.spacing(12),
-    fontFamily: 'Lato bold 700',
-    fontWeight: 'bold',
-    fontSize: '1em',
+    fontFamily: 'Lato',
+    fontWeight:'bold',
+    fontSize: '1.2rem',
+    lineHeight: '1.5',
+
   },
   menuButton: {
     marginRight: theme.spacing(2),
     textTransform: "none",
-    fontSize: '1em',
-    fontFamily: 'Lato bold 700',
-    fontWeight: 'bold'
+    fontFamily: 'Lato',
+    fontWeight:'bold',
+    fontSize: '1.2rem',
+    lineHeight: '1.5',
   },
   title: {
     flexGrow: 1,
