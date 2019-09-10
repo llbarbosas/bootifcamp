@@ -33,6 +33,10 @@ const Logo = ({ src, href }) => (
 );
 
 const Navbar = styled.header`
+  @media (max-width: 780px) {
+    padding: 20px;
+  }
+
   background-color: var(--primary-color);
 
   display: flex;
@@ -40,7 +44,7 @@ const Navbar = styled.header`
   align-items: center;
 
   height: 10%;
-  padding: 20px 30px;
+  padding: 20px 80px;
 `;
 
 const Desktop = styled.ul`

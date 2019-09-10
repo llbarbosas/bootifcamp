@@ -9,7 +9,6 @@ export default createGlobalStyle`
         --primary-color: #01579B;
     }
 
-
     * {
         margin: 0;
         padding: 0;
